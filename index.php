@@ -1,5 +1,6 @@
 <?php
 // показывать или нет выполненные задачи
+//lsefhsleifhsleihlseighsgeih
 
 $show_complete_tasks = rand(0, 1);
 ?>
@@ -117,6 +118,8 @@ $show_complete_tasks = rand(0, 1);
         </div>
     </div>
 </div>
+
+//efselifhsleifhsleihf
 
 <footer class="main-footer">
     <div class="container">
