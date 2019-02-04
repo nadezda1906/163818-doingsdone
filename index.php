@@ -49,6 +49,19 @@ $doings = [
         'status' => false
     ]
 ];
+
+function countOfTasksInProject ($list, $tasks) {
+    $count = 0;
+
+    foreach ($tasks as $key => $value) {
+        if ($list === $value['category']) {
+            $count = $count + 1;
+        }
+    }
+
+    return $count;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -97,7 +110,7 @@ $doings = [
                         <?php foreach ($categories as $key => $value): ?>
                             <li class="main-navigation__list-item">
                                 <a href="#" class="main-navigation__list-item-link"><?= $value; ?></a>
-                                <span class="main-navigation__list-item-count">0</span>
+                                <span class="main-navigation__list-item-count"><?= countOfTasksInProject($value, $doings) ?></span>
                             </li>
                         <?php endforeach; ?>
                     </ul>
