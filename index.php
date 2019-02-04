@@ -146,28 +146,28 @@ function countOfTasksInProject ($list, $tasks) {
 
                 <table class="tasks">
                     <?php foreach ($doings as $key => $value): ?>
-                        <?php if ($value[status] === false): ?>
+                        <?php if ($value['status'] === false): ?>
                             <tr class="tasks__item task">
                                 <td class="task__select">
                                     <label class="checkbox task__checkbox">
                                         <input class="checkbox__input visually-hidden" type="checkbox">
-                                        <span class="checkbox__text"><?= $value[task] ?></span>
+                                        <span class="checkbox__text"><?= $value['task'] ?></span>
                                     </label>
                                 </td>
-                                <td class="task__date"><?= $value[date] ?></td>
+                                <td class="task__date"><?= $value['date'] ?></td>
 
                                 <td class="task__controls">
                                 </td>
                             </tr>
-                        <?php elseif ($value[status] === true && $show_complete_tasks === 1): ?>
+                        <?php elseif ($value['status'] === true && $show_complete_tasks === 1): ?>
                             <tr class="tasks__item task task--completed">
                                 <td class="task__select">
                                     <label class="checkbox task__checkbox">
                                         <input class="checkbox__input visually-hidden" type="checkbox" checked>
-                                        <span class="checkbox__text"><?= $value[task] ?></span>
+                                        <span class="checkbox__text"><?= $value['task'] ?></span>
                                     </label>
                                 </td>
-                                <td class="task__date"><?= $value[date] ?></td>
+                                <td class="task__date"><?= $value['date'] ?></td>
 
                                 <td class="task__controls">
                                 </td>
