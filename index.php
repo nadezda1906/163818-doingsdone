@@ -49,6 +49,19 @@ $doings = [
         'status' => false
     ]
 ];
+
+function countOfTasksInProject ($list, $tasks) {
+    $count = 0;
+
+    foreach ($tasks as $key => $value) {
+        if ((string) $list === (string) $value['category']) {
+            $count = $count + 1;
+        }
+    }
+
+    return $count;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -97,7 +110,7 @@ $doings = [
                         <?php foreach ($categories as $key => $value): ?>
                             <li class="main-navigation__list-item">
                                 <a href="#" class="main-navigation__list-item-link"><?= $value; ?></a>
-                                <span class="main-navigation__list-item-count">0</span>
+                                <span class="main-navigation__list-item-count"><?= countOfTasksInProject($value, $doings) ?></span>
                             </li>
                         <?php endforeach; ?>
                     </ul>
@@ -133,28 +146,28 @@ $doings = [
 
                 <table class="tasks">
                     <?php foreach ($doings as $key => $value): ?>
-                        <?php if ($value[status] === false): ?>
+                        <?php if ($value['status'] === false): ?>
                             <tr class="tasks__item task">
                                 <td class="task__select">
                                     <label class="checkbox task__checkbox">
                                         <input class="checkbox__input visually-hidden" type="checkbox">
-                                        <span class="checkbox__text"><?= $value[task] ?></span>
+                                        <span class="checkbox__text"><?= $value['task'] ?></span>
                                     </label>
                                 </td>
-                                <td class="task__date"><?= $value[date] ?></td>
+                                <td class="task__date"><?= $value['date'] ?></td>
 
                                 <td class="task__controls">
                                 </td>
                             </tr>
-                        <?php elseif ($value[status] === true && $show_complete_tasks === 1): ?>
+                        <?php elseif ($value['status'] === true && $show_complete_tasks === 1): ?>
                             <tr class="tasks__item task task--completed">
                                 <td class="task__select">
                                     <label class="checkbox task__checkbox">
                                         <input class="checkbox__input visually-hidden" type="checkbox" checked>
-                                        <span class="checkbox__text"><?= $value[task] ?></span>
+                                        <span class="checkbox__text"><?= $value['task'] ?></span>
                                     </label>
                                 </td>
-                                <td class="task__date"><?= $value[date] ?></td>
+                                <td class="task__date"><?= $value['date'] ?></td>
 
                                 <td class="task__controls">
                                 </td>
